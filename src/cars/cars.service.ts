@@ -41,6 +41,7 @@ export class CarsService {
      }
 
      create( createCarDto: CreateCarDTO){
+        
         const car:Car ={
             id: uuid(),
             brand: createCarDto.brand,
@@ -57,6 +58,7 @@ export class CarsService {
         if(updateCarDTO.id && updateCarDTO.id !== id){
             throw new BadRequestException(`Car id isn't valid inside body`)
         }
+        
         this.cars = this.cars.map(car => {
 
             if (car.id === id ){
